@@ -28,19 +28,31 @@ document.getElementById('button-less').addEventListener('click', function () {
 })
 const matcedPin = document.getElementById('matchedpin');
 const unMatchedPin = document.getElementById('umnatchedPin');
-
+let wrongPassCount = 0;
 document.getElementById('submit-btn').addEventListener('click', function () {
     const inputPin = document.getElementById('input-pin').value;
     const outputPin = document.getElementById('output-input').value;
 
     if (inputPin == outputPin) {
         matcedPin.style.display = 'block';
-        // unMatchedPin.style.display = 'none';
+        unMatchedPin.style.display = 'none';
 
     }
     else {
-        // matcedPin.style.display = 'none';
+        matcedPin.style.display = 'none';
         unMatchedPin.style.display = 'block';
+        wrongPassCount++;
+        const wrongAttemptElement = document.getElementById('attempt');
+        let wrongAttemptText = wrongAttemptElement.innerText;
+        // console.log(wrongAttempt);
+        let wrongAttemptValue = parseInt(wrongAttemptText);
 
+
+        if (wrongAttemptValue == 0) {
+            alert('Sorry,You Have Exceeded Your Limit.Your Account is Temporaly Blocked');
+        }
+        else {
+            wrongAttemptElement.innerText = wrongAttemptValue - 1;
+        }
     }
 })
