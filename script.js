@@ -35,12 +35,12 @@ document.getElementById('submit-btn').addEventListener('click', function () {
 
     if (inputPin == outputPin) {
         matcedPin.style.display = 'block';
-        unMatchedPin.style.display = 'none';
+        // unMatchedPin.style.display = 'none';
 
     }
     else {
-        matcedPin.style.display = 'none';
+        // matcedPin.style.display = 'none';
         unMatchedPin.style.display = 'block';
-        console.log(unMatchedPin);
+
     }
 })
